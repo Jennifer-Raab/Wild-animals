@@ -19,16 +19,16 @@ export default function App() {
 
   return (
     <>
-      <header>
+      <header className="pad5vh">
         <NavLink to="/">Übersicht</NavLink>
       </header>
-      <main>
+      <main className="pad5vh">
         <Routes>
           <Route path="/" element={<Animals animals={animals} />} />
           <Route path="animal/:id" element={<Animal animals={animals} />} />
         </Routes>
       </main>
-      <footer>Test</footer>
+      <footer className="pad5vh">Test</footer>
     </>
   );
 }

@@ -3,10 +3,6 @@ import { useParams } from "react-router-dom";
 function Animal({ animals }) {
   const { id } = useParams();
 
-  console.log(id);
-
-  console.log("test");
-
   console.log("Animals: ", animals);
 
   const animal =
@@ -14,26 +10,24 @@ function Animal({ animals }) {
 
   // console.log(animal);
   return (
-    <div className="App">
+    <div className="animal-single">
       {animal ? (
         <>
-          <div>{animal.fields.tierart}</div>
-          <div>{animal.fields.tierklasse}</div>
-          <div>{animal.fields.gattung}</div>
-          <div>{animal.fields.mingroesse}</div>
-          <div>{animal.fields.maxgroesse}</div>
-          <div>{animal.fields.mingewicht}</div>
-          <div>{animal.fields.maxgewicht}</div>
-          <div>{animal.fields.lebenserwartung}</div>
-          <div>{animal.fields.schutzstatus}</div>
-          <div>{animal.fields.verhalten}</div>
-
+        <nav><a href="/">{animal.fields.tierklasse}</a> &#10132; <a href="/">{animal.fields.gattung}</a> &#10132; {animal.fields.tierart}</nav>
+          <h1>{animal.fields.tierart}</h1>
           <div>
             <img
               src={animal.fields.bild.fields.file.url}
               alt={animal.fields.bild.fields.description}
             />
           </div>
+          <div>Tierklasse: {animal.fields.tierklasse}</div>
+          <div>Gattung: {animal.fields.gattung}</div>
+          <div>Größe: {animal.fields.mingroesse} - {animal.fields.maxgroesse} Meter</div>
+          <div>Gewicht: {animal.fields.mingewicht} - {animal.fields.maxgewicht} Kilo</div>
+          <div>Lebenserwartung: {animal.fields.lebenserwartung} Jahre</div>
+          <div>Schutzstatus: {animal.fields.schutzstatus}</div>
+          <div>{animal.fields.verhalten}</div>
         </>
       ) : (
         "not found"
