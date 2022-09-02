@@ -1,13 +1,34 @@
-import './App.css';
-import { client } from './Components/client';
+import { Routes, Route, NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { client } from "./Components/client";
+import "./App.css";
 
-function App() {
-  console.log('EFG ');
-  client.getEntries().then(response => console.log('ABC ', response)).catch(console.error);
+import Animals from "./Components/Animals";
+import Animal from "./Components/Animal";
+
+export default function App() {
+  const [animals, setAnimals] = useState([]);
+  useEffect(() => {
+    client
+      .getEntries()
+      .then((response) => setAnimals(response.items))
+      .catch(console.error);
+  }, []);
+
+  console.log("Animals in App", animals);
+
   return (
-    <div className="App">CDE
-    </div>
+    <>
+      <header>
+        <NavLink to="/">Übersicht</NavLink>
+      </header>
+      <main>
+        <Routes>
+          <Route path="/" element={<Animals animals={animals} />} />
+          <Route path="animal/:id" element={<Animal animals={animals} />} />
+        </Routes>
+      </main>
+      <footer>Test</footer>
+    </>
   );
 }
-
-export default App;
