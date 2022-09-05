@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { Map, Marker } from "pigeon-maps"
+import { Map, Marker } from "pigeon-maps";
 import { stamenTerrain } from 'pigeon-maps/providers'
 
 
