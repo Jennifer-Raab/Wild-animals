@@ -14,6 +14,7 @@ body {
   background-color: #2b193d;
   color: #eee0cb;
   font-size: 15px;
+  line-height: 23px;
   font-weight: 300;
 }
 main {
@@ -36,16 +37,32 @@ img {
 
 h1 { 
   font-size: 3rem;
+  line-height: 1.6em;
   font-weight: 900;
   text-align: center;
   padding: 3vh;
 }
+th { 
+  text-align: left;
+  padding-right: 10px; 
+ }
+ table, .animal-behaviour { 
+  font-size: 1.2rem;
+  margin-top: 3vh;
+  line-height: 1.6em;
+ }
 
-
+ .animal-flex {
+  display: flex;
+ }
+ .animal-flex > *  {
+  width: 50% !important;
+  margin-top: 3vh;
+ }
 .animal-list {
   display: flex;
-  justify-content: space-between;
-  row-gap: 5vh;
+  row-gap: 4vh;
+  column-gap: 5%;
   flex-wrap: wrap;
 }
 .animal-card  {
@@ -65,4 +82,18 @@ h1 {
 }
 .pad5vh {
   padding: 5vh 0;
+}
+
+@media only screen and (max-width: 768px) {
+  .animal-list {
+    column-gap: 10%;
+  }
+  .animal-card  {
+    width: 45%;
+  }
+}
+@media only screen and (max-width: 566px) {
+  .animal-card  {
+    width: 100%;
+  }
 }

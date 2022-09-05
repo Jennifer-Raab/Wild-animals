@@ -1,4 +1,7 @@
 import { useParams } from "react-router-dom";
+import { Map, Marker } from "pigeon-maps"
+import { stamenTerrain } from 'pigeon-maps/providers'
+
 
 function Animal({ animals }) {
   const { id } = useParams();
@@ -21,13 +24,46 @@ function Animal({ animals }) {
               alt={animal.fields.bild.fields.description}
             />
           </div>
-          <div>Tierklasse: {animal.fields.tierklasse}</div>
-          <div>Gattung: {animal.fields.gattung}</div>
-          <div>Größe: {animal.fields.mingroesse} - {animal.fields.maxgroesse} Meter</div>
-          <div>Gewicht: {animal.fields.mingewicht} - {animal.fields.maxgewicht} Kilo</div>
-          <div>Lebenserwartung: {animal.fields.lebenserwartung} Jahre</div>
-          <div>Schutzstatus: {animal.fields.schutzstatus}</div>
-          <div>{animal.fields.verhalten}</div>
+          <div className="animal-flex">
+
+          <table>
+            <tbody>
+              <tr>
+                <th>Tierklasse:</th>
+                <td>{animal.fields.tierklasse}</td>
+              </tr>
+              <tr>
+                <th>Gattung:</th>
+                <td>{animal.fields.gattung}</td>
+              </tr>
+              <tr>
+                <th>Größe:</th>
+                <td>{animal.fields.mingroesse} - {animal.fields.maxgroesse} Meter</td>
+              </tr>
+              <tr>
+                <th>Gewicht:</th>
+                <td>{animal.fields.mingewicht} - {animal.fields.maxgewicht} Kilo</td>
+              </tr>
+              <tr>
+                <th>Lebenserwartung:</th>
+                <td>{animal.fields.lebenserwartung} Jahre</td>
+              </tr>
+              <tr>
+                <th>Schutzstatus:</th>
+                <td>{animal.fields.schutzstatus}</td>
+              </tr>
+            </tbody>
+          </table>
+          <Map
+            provider={stamenTerrain}
+            height={200}
+            defaultCenter={[50.879, 4.6997]}
+            defaultZoom={11}
+          >
+            <Marker width={50} anchor={[50.879, 4.6997]} />
+          </Map>
+          </div>
+          <div className="animal-behaviour">{animal.fields.verhalten}</div>
         </>
       ) : (
         "not found"
