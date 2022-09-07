@@ -10,6 +10,9 @@
 a {
   text-decoration: none;
 }
+#root {
+  min-height: 100vh;
+}
 body {
   background-color: #2b193d;
   color: #eee0cb;
@@ -17,7 +20,7 @@ body {
   line-height: 23px;
   font-weight: 300;
 }
-main {
+main, header > div {
   margin: 0 auto;
   width: 80%;
   max-width: 1024px;
@@ -50,17 +53,30 @@ table,
   line-height: 1.6em;
 }
 
-.animal-flex {
+.animal-flex, .header-flex {
   display: flex;
   align-items: center;
 }
+.header-flex {
+  justify-content: space-between;
+}
+.header-flex > a{font-size: 1.5rem;}
+.logo {
+  width: 150px;
+  height: auto;
+  margin: -20px 0;
+}
+.button {
+  width: 150px;
+  height: auto;
+}
 .animal-flex > * {
   width: 50% !important;
-  margin-top: 3vh;
+  margin-top: 2.5em;
 }
 .animal-list {
   display: flex;
-  row-gap: 4vh;
+  row-gap: 2.5rem;
   column-gap: 5%;
   flex-wrap: wrap;
 }
@@ -86,9 +102,17 @@ table,
   bottom: 0;
 }
 .pad5vh {
-  padding: 5vh 0;
+  padding: 2.5rem 0;
 }
 
+@media only screen and (max-width: 1023px) {
+  .animal-flex {
+    display: block;
+  }
+  .animal-flex > * {
+    width: 100% !important;
+  }
+}
 @media only screen and (max-width: 768px) {
   .animal-list {
     column-gap: 10%;
