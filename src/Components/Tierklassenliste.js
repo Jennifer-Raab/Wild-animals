@@ -1,10 +1,17 @@
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
-export default function Animals({ animals }) {
+export default function Tierklassenlistes({ animals }) {
+  const { suchwort } = useParams();
+
+  const result = animals.filter(
+    (animal) => animal.fields.tierklasse === suchwort
+  );
+
+  console.log("result", result);
   return (
     <div className="animal-list">
-      {animals.length &&
-        animals.map((animal) => {
+      {result.length &&
+        result.map((animal) => {
           console.log(animal);
           return (
             <div key={animal.sys.id} className="animal-card">
