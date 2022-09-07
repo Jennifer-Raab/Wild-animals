@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
@@ -30,49 +30,54 @@ footer {
   text-align: center;
   background-color: #004f2d;
 }
-img {
-  width: 100%;
-  height: auto;
-}
 
-h1 { 
+h1 {
   font-size: 3rem;
   line-height: 1.6em;
   font-weight: 900;
   text-align: center;
   padding: 3vh;
 }
-th { 
+th {
   text-align: left;
-  padding-right: 10px; 
- }
- table, .animal-behaviour { 
+  padding-right: 10px;
+  vertical-align: top;
+}
+table,
+.animal-behaviour {
   font-size: 1.2rem;
   margin-top: 3vh;
   line-height: 1.6em;
- }
+}
 
- .animal-flex {
+.animal-flex {
   display: flex;
- }
- .animal-flex > *  {
+  align-items: center;
+}
+.animal-flex > * {
   width: 50% !important;
   margin-top: 3vh;
- }
+}
 .animal-list {
   display: flex;
   row-gap: 4vh;
   column-gap: 5%;
   flex-wrap: wrap;
 }
-.animal-card  {
+.animal-picture {
+  width: 100%;
+  height: auto;
+}
+.animal-card {
   width: 30%;
   position: relative;
   font-size: 1.5rem;
 }
-.animal-card img  { display: block; }
+.animal-card img {
+  display: block;
+}
 
-.animal-card > a > p  {
+.animal-card > a > p {
   padding: 10px;
   text-align: center;
   background: rgba(0, 0, 0, 0.5);
@@ -88,12 +93,12 @@ th {
   .animal-list {
     column-gap: 10%;
   }
-  .animal-card  {
+  .animal-card {
     width: 45%;
   }
 }
 @media only screen and (max-width: 566px) {
-  .animal-card  {
+  .animal-card {
     width: 100%;
   }
 }

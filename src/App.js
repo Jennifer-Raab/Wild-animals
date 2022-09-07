@@ -1,6 +1,8 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { client } from "./Components/client";
+import Tierklassenliste from "./Components/Tierklassenliste";
+import GattungsListe from "./Components/GattungsListe";
 import "./App.css";
 
 import Animals from "./Components/Animals";
@@ -26,6 +28,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Animals animals={animals} />} />
           <Route path="animal/:id" element={<Animal animals={animals} />} />
+          <Route
+            path="tierklassenliste/:suchwort"
+            element={<Tierklassenliste animals={animals} />}
+          />
+          <Route
+            path="gattung/:suchwort"
+            element={<GattungsListe animals={animals} />}
+          />
         </Routes>
       </main>
       <footer className="pad5vh">Test</footer>
