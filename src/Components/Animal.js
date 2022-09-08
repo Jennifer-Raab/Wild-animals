@@ -10,7 +10,6 @@ function Animal({ animals }) {
   const animal =
     animals.length && animals.find((animal) => id === animal.sys.id);
 
-  // console.log(animal);
   return (
     <div className="animal-single">
       {animal ? (

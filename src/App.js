@@ -1,14 +1,14 @@
 import { Routes, Route, NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { client } from "./Components/client";
-import Tierklassenliste from "./Components/Tierklassenliste";
-import GattungsListe from "./Components/GattungsListe";
 import "./App.css";
-import logo from './graphics/tierlexikon-logo.png';
-import spendenbutton from './graphics/spenden-button.png';
-
+import GattungsListe from "./Components/GattungsListe";
+import logo from "./graphics/tierlexikon-logo.png";
+import spendenbutton from "./graphics/spenden-button.png";
+import Tierklassenliste from "./Components/Tierklassenliste";
 import Animals from "./Components/Animals";
 import Animal from "./Components/Animal";
+import TierklassenNavigation from "./Components/TierklassenNavigation";
 
 export default function App() {
   const [animals, setAnimals] = useState([]);
@@ -25,8 +25,12 @@ export default function App() {
     <>
       <header className="pad5vh">
         <div className="header-flex">
-          <img src={logo} alt="Tierlexikon" className="logo" />
-          <NavLink to="/">Übersicht</NavLink>
+          <NavLink to="/">
+            <img src={logo} alt="Tierlexikon" className="logo" />
+          </NavLink>
+          <NavLink className={"header-link"} to="/">
+            Übersicht
+          </NavLink>
           <img src={spendenbutton} alt="Spenden" className="button" />
         </div>
       </header>
@@ -44,7 +48,40 @@ export default function App() {
           />
         </Routes>
       </main>
-      <footer className="pad5vh">Test</footer>
+      <footer className="pad5vh">
+        <div className="footer-flex">
+          <div>
+            <h4>Tierklassen</h4>
+            <TierklassenNavigation animals={animals} />
+          </div>
+          <div>
+            <h4>&copy; Wild Animals</h4>
+            <nav>
+              <a href="/">Datenschutz</a>
+              <a href="/">Impressum</a>
+            </nav>
+          </div>
+          <div>
+            <h4>Kontakt</h4>
+            <nav>
+              <a
+                href="https://github.com/Jennifer-Raab"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Jenni
+              </a>
+              <a
+                href="https://github.com/rol423"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Roland
+              </a>
+            </nav>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

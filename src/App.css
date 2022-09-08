@@ -20,26 +20,36 @@ body {
   line-height: 23px;
   font-weight: 300;
 }
-main, header > div {
+main {
+  min-height: calc(100% - 442px);
+}
+main,
+header > div,
+footer > div {
   margin: 0 auto;
   width: 80%;
   max-width: 1024px;
 }
 header {
-  text-align: center;
   background-color: #004f2d;
 }
 footer {
-  text-align: center;
   background-color: #004f2d;
 }
-
+footer > div > div > nav > a {
+  display: block;
+}
 h1 {
   font-size: 3rem;
   line-height: 1.6em;
-  font-weight: 900;
+  font-weight: 700;
   text-align: center;
   padding: 3vh;
+}
+h4 {
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1.6em;
 }
 th {
   text-align: left;
@@ -52,15 +62,21 @@ table,
   margin-top: 3vh;
   line-height: 1.6em;
 }
-
-.animal-flex, .header-flex {
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.animal-flex,
+.header-flex {
   display: flex;
   align-items: center;
 }
 .header-flex {
   justify-content: space-between;
 }
-.header-flex > a{font-size: 1.5rem;}
+.header-link {
+  font-size: 1.5rem;
+}
 .logo {
   width: 150px;
   height: auto;
@@ -124,5 +140,9 @@ table,
 @media only screen and (max-width: 566px) {
   .animal-card {
     width: 100%;
+  }
+
+  .header-link {
+    display: none;
   }
 }
