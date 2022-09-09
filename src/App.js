@@ -23,7 +23,9 @@ export default function App() {
 
   return (
     <>
-      <header className="pad5vh">
+    <div className="content">
+
+    <header className="pad5vh">
         <div className="header-flex">
           <NavLink to="/">
             <img src={logo} alt="Tierlexikon" className="logo" />
@@ -48,6 +50,9 @@ export default function App() {
           />
         </Routes>
       </main>
+
+    </div>
+     
       <footer className="pad5vh">
         <div className="footer-flex">
           <div>
