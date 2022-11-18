@@ -14,7 +14,9 @@ export default function App() {
   const [animals, setAnimals] = useState([]);
   useEffect(() => {
     client
-      .getEntries()
+      .getEntries({
+        content_type: 'wildtiere',
+      })
       .then((response) => setAnimals(response.items))
       .catch(console.error);
   }, []);
